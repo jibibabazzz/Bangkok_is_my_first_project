@@ -9,7 +9,7 @@
 
     <style>
         body {
-            background-color: linen;
+            background-color: #f9f9f9;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -17,10 +17,11 @@
         }
 
         header {
-            background-color: #f4a261;
-            color: white;
+            background-color: #ffffff;
+            color: #333;
             text-align: center;
             padding: 30px 20px;
+            border-bottom: 1px solid #ddd;
         }
 
         main {
@@ -82,7 +83,7 @@
         }
 
         a {
-            color: #e76f51;
+            color: #2a7f62;
             text-decoration: none;
         }
 
@@ -91,7 +92,7 @@
         }
 
         .highlight {
-            color: red;
+            color: grey;
             text-align: center;
             margin-top: 20px;
             font-size: 18px;
@@ -101,6 +102,20 @@
             border: none;
             border-top: 1px solid #ccc;
             margin: 25px 0;
+        }
+
+        button {
+            background-color: #2a7f62;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #256b54;
         }
     </style>
 </head>
@@ -113,7 +128,7 @@
 
         <hr>
 
-        <h2 style="color:white; border-bottom:none;">About Bangkok</h2>
+        <h2 style="color:#333; border-bottom:none;">About Bangkok</h2>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDyDqMD4BHCRnpryIZgbYVJ2xipztr5MZ8Qg&s" alt="Bangkok Image">
 
         <br><br>
@@ -124,9 +139,9 @@
 
         <p>
             Bangkok, the capital of Thailand, is a dynamic city full of energy and style.
-            From stunning temples and street food to chic cafes and rooftop bars, the city offers
-            a unique travel experience. It is a place where tradition meets modern life, creating
-            a vibrant and unforgettable atmosphere.
+            <br>From stunning temples and street food to chic cafes and rooftop bars, the city offers
+            <br>a unique travel experience. It is a place where tradition meets modern life, creating
+            <br>a vibrant and unforgettable atmosphere.
         </p>
     </header>
 
@@ -141,6 +156,10 @@
         </ul>
 
         <hr>
+
+        <h2>Check Bangkok Weather</h2>
+        <p id="tempText">Click button to see temperature</p>
+        <button id="tempBtn">Show Temperature</button>
 
         <h2>Interesting Places to Visit</h2>
         <ol class="nav">
@@ -226,6 +245,17 @@
             <b>Bangkok is a vibrant city for culture, food, lifestyle, and travel experiences.</b>
         </p>
     </main>
+
+    <script>
+        let btn = document.getElementById("tempBtn");
+        let text = document.getElementById("tempText");
+
+        btn.addEventListener("click", function () {
+            text.textContent = "Bangkok temperature is 33°C ☀️";
+            text.style.color = "#2a7f62";
+            text.style.fontWeight = "bold";
+        });
+    </script>
 
 </body>
 
