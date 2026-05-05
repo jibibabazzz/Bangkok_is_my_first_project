@@ -1,210 +1,340 @@
 <!DOCTYPE html>
-<!-- Bangkok city by Rainy -->
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Let's go to Bangkok!</title>
+    <title>Bangkok City Guide</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #f9f9f9;
+            margin: 0;
             font-family: Arial, sans-serif;
+            background: #f4f1ec;
+            color: #111;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background: #f4f1ec;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #111;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            border-bottom: 2px solid #111;
+        }
+
+        .hero {
+            min-height: 75vh;
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+            url("https://images.unsplash.com/photo-1563492065599-3520f775eeed?q=80&w=1600");
+            background-size: cover;
+            background-position: center;
+            border-radius: 0 0 35px 35px;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 95px;
+            letter-spacing: 10px;
             margin: 0;
-            padding: 0;
-            color: #333;
         }
 
-        header {
-            background-color: #ffffff;
-            color: #333;
-            text-align: center;
-            padding: 30px 20px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        main {
+        .hero p {
+            max-width: 520px;
+            font-size: 18px;
+            line-height: 1.6;
+            background: rgba(0,0,0,0.45);
             padding: 20px;
-            max-width: 1000px;
-            margin: auto;
+            border-radius: 18px;
         }
 
-        h1 {
-            margin: 0;
-            font-size: 40px;
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 24px;
+            background: #ff6b00;
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 60px 8%;
         }
 
         h2 {
-            color: #264653;
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 5px;
-            margin-top: 30px;
+            font-size: 38px;
+            margin-bottom: 20px;
         }
 
-        p {
-            line-height: 1.6;
+        .intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
         }
 
-        img {
-            width: 80%;
-            max-width: 500px;
-            border-radius: 10px;
-            margin: 15px 0;
+        .intro img {
+            width: 100%;
+            border-radius: 25px;
         }
 
-        .nav {
-            padding-left: 20px;
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
         }
 
-        .nav li {
-            color: navy;
-            font-size: 18px;
-            padding: 8px 0;
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 22px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        .dark {
+            background: #050505;
+            color: white;
+            border-radius: 35px;
+            margin: 30px 4%;
+        }
+
+        .slider-box {
+            text-align: center;
+        }
+
+        #sliderImage {
+            width: 70%;
+            max-width: 600px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 30px;
+            border: 2px solid #555;
+        }
+
+        .dots {
+            margin-top: 20px;
+        }
+
+        .dot {
+            height: 14px;
+            width: 14px;
+            background: #777;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .active {
+            background: white;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
-            background-color: white;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
         }
 
         th {
-            background-color: #264653;
+            background: #111;
             color: white;
-            padding: 12px;
+            padding: 15px;
             text-align: left;
         }
 
         td {
-            border: 1px solid #ccc;
-            padding: 12px;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
         }
 
-        a {
-            color: #2a7f62;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .highlight {
-            color: grey;
+        footer {
             text-align: center;
-            margin-top: 20px;
-            font-size: 18px;
-        }
-
-        hr {
-            border: none;
-            border-top: 1px solid #ccc;
-            margin: 25px 0;
-        }
-
-        button {
-            background-color: #2a7f62;
+            padding: 30px;
+            background: #111;
             color: white;
-            border: none;
-            padding: 10px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
         }
 
-        button:hover {
-            background-color: #256b54;
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 10px;
+            }
+
+            .hero h1 {
+                font-size: 52px;
+                letter-spacing: 5px;
+            }
+
+            .intro,
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            #sliderImage {
+                width: 100%;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Bangkok City</h1>
-        <p><b>Full Thai name:</b> กรุงเทพมหานคร (Krung Thep Maha Nakhon)</p>
+    <nav>
+        <div class="logo">Bangkok</div>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#places">Places</a>
+            <a href="#food">Food</a>
+            <a href="#info">Info</a>
+        </div>
+    </nav>
 
-        <hr>
-
-        <h2 style="color:#333; border-bottom:none;">About Bangkok</h2>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDyDqMD4BHCRnpryIZgbYVJ2xipztr5MZ8Qg&s" alt="Bangkok Image">
-
-        <br><br>
-
-        <a href="https://youtu.be/gbY5lbU3yNM?si=Rcm29jvX8CeM7Pdi" target="_blank">
-            Play Bangkok's full ceremonial name in song here
-        </a>
-
-        <p>
-            Bangkok, the capital of Thailand, is a dynamic city full of energy and style.
-            <br>From stunning temples and street food to chic cafes and rooftop bars, the city offers
-            <br>a unique travel experience. It is a place where tradition meets modern life, creating
-            <br>a vibrant and unforgettable atmosphere.
-        </p>
+    <header class="hero" id="home">
+        <div>
+            <h1>BANGKOK</h1>
+            <p>
+                Bangkok, the capital of Thailand, is a city full of culture, street food,
+                temples, cafes, rooftop bars, and creative local areas. It is where
+                traditional Thai life meets a modern city lifestyle.
+            </p>
+            <button class="btn" onclick="showWelcome()">Start Journey</button>
+        </div>
     </header>
 
-    <main>
-        <h2>Why visit Bangkok?</h2>
-        <ul class="nav">
-            <li>Rich Thai culture and famous temples</li>
-            <li>Delicious local food and fine dining restaurants</li>
-            <li>Chic cafes and trendy lifestyle places</li>
-            <li>Beautiful rooftop bars and nightlife</li>
-            <li>Easy transportation by BTS, MRT, taxi, and boat</li>
-        </ul>
+    <section class="intro">
+        <div>
+            <h2>กรุงเทพมหานคร</h2>
+            <p>
+                Bangkok’s Thai name is <b>กรุงเทพมหานคร</b> or <b>Krung Thep Maha Nakhon</b>.
+                The city is popular for travellers because it offers many different experiences
+                in one place, from temples and local markets to modern shopping malls and nightlife.
+            </p>
+            <a class="btn" href="https://youtu.be/gbY5lbU3yNM?si=Rcm29jvX8CeM7Pdi" target="_blank">
+                Listen to Bangkok Name Song
+            </a>
+        </div>
 
-        <hr>
+        <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=1200" alt="Bangkok city">
+    </section>
 
-        <h2>Check Bangkok Weather</h2>
-        <p id="tempText">Click button to see temperature</p>
-        <button id="tempBtn">Show Temperature</button>
+    <section id="places">
+        <h2>Interesting Places</h2>
 
-        <h2>Interesting Places to Visit</h2>
-        <ol class="nav">
-            <li>The Grand Palace</li>
-            <li>Wat Arun</li>
-            <li>Wat Pho</li>
-            <li>ICONSIAM</li>
-            <li>Yaowarat (Chinatown)</li>
-            <li>Song Wat Road (creative street & cafes)</li>
-            <li>Talad Noi (street art & vintage community)</li>
-            <li>Charoen Krung District (art & lifestyle area)</li>
-            <li>Asiatique The Riverfront</li>
-            <li>Benjakitti Park (city park & skyline view)</li>
-        </ol>
+        <div class="cards">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1566829044943-7b498b2e8736?q=80&w=1200" alt="Grand Palace">
+                <h3>The Grand Palace</h3>
+                <p>A famous landmark showing Thai history, architecture, and royal culture.</p>
+            </div>
 
-        <h2>Recommended Cafes, Bars & Restaurants in Bangkok</h2>
-        <ul class="nav">
-            <li>After the Rain Coffee & Gallery</li>
-            <li>บ้านอากงอาม่า / Baan Akong Ama</li>
-            <li>Patom Organic Living</li>
-            <li>NANA Coffee Roasters</li>
-            <li>The Mustang Blu</li>
-            <li>Tichuca Rooftop Bar</li>
-            <li>Vertigo Rooftop</li>
-            <li>Octave Rooftop Lounge & Bar</li>
-            <li>Tep Bar</li>
-            <li>Asia Today Bar</li>
-            <li>Thipsamai Pad Thai</li>
-            <li>Jeh O Chula</li>
-            <li>Baan Khanitha</li>
-            <li>Err Urban Rustic Thai</li>
-            <li>Somboon Seafood</li>
-        </ul>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1563492065599-3520f775eeed?q=80&w=1200" alt="Wat Arun">
+                <h3>Wat Arun</h3>
+                <p>A beautiful riverside temple, especially popular during sunset.</p>
+            </div>
 
-        <h2>Cool Activities in Bangkok</h2>
-        <ul class="nav">
-            <li>There are many things to do in Bangkok.</li>
-            <li>You can visit temples and historical places during the day.</li>
-            <li>You can go shopping in Siam or local markets like Chatuchak.</li>
-            <li>Many people also like to explore cafes and take photos.</li>
-            <li>At night, Bangkok becomes more lively with street food and rooftop bars.</li>
-            <li>It is a city that offers something for everyone.</li>
-        </ul>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1200" alt="Chinatown">
+                <h3>Yaowarat</h3>
+                <p>Bangkok’s Chinatown, famous for street food, lights, and night atmosphere.</p>
+            </div>
+        </div>
+    </section>
 
+    <section class="dark" id="food">
+        <h2>Creative Local Areas</h2>
+
+        <div class="slider-box">
+            <img id="sliderImage"
+                src="https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=1200"
+                alt="Bangkok travel image">
+
+            <h3 id="sliderTitle">Song Wat Road</h3>
+            <p id="sliderText">
+                A creative street with old buildings, cafes, galleries, and local charm.
+            </p>
+
+            <div class="dots">
+                <span class="dot active" onclick="changeSlide(0)"></span>
+                <span class="dot" onclick="changeSlide(1)"></span>
+                <span class="dot" onclick="changeSlide(2)"></span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Cafes, Bars and Restaurants</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Cafes</h3>
+                <ul>
+                    <li>NANA Coffee Roasters</li>
+                    <li>Patom Organic Living</li>
+                    <li>The Mustang Blu</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Bars</h3>
+                <ul>
+                    <li>Tichuca Rooftop Bar</li>
+                    <li>Tep Bar</li>
+                    <li>Asia Today Bar</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Restaurants</h3>
+                <ul>
+                    <li>Thipsamai Pad Thai</li>
+                    <li>Jeh O Chula</li>
+                    <li>Somboon Seafood</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="info">
         <h2>Travel Information</h2>
+
         <table>
             <tr>
                 <th>Category</th>
@@ -219,44 +349,55 @@
                 <td>Bangkok</td>
             </tr>
             <tr>
-                <td>Thai Name</td>
-                <td>กรุงเทพมหานคร</td>
-            </tr>
-            <tr>
                 <td>Famous For</td>
-                <td>Temples, food, shopping, cafes, bars, and nightlife</td>
+                <td>Temples, food, cafes, shopping, rooftop bars, and nightlife</td>
             </tr>
             <tr>
-                <td>Best Transport</td>
+                <td>Transport</td>
                 <td>BTS, MRT, taxi, tuk-tuk, and boat</td>
             </tr>
         </table>
+    </section>
 
-        <h2>More Information</h2>
-        <p>
-            <a href="https://www.tourismthailand.org/Destinations/Provinces/Bangkok/219" target="_blank">
-                Tourism Information about Bangkok
-            </a>
-        </p>
-
-        <hr>
-
-        <p class="highlight">
-            <b>Bangkok is a vibrant city for culture, food, lifestyle, and travel experiences.</b>
-        </p>
-    </main>
+    <footer>
+        <p><b>Bangkok is a city of culture, flavour, lifestyle, and travel experiences.</b></p>
+    </footer>
 
     <script>
-        let btn = document.getElementById("tempBtn");
-        let text = document.getElementById("tempText");
+        function showWelcome() {
+            alert("Welcome to Bangkok! Enjoy the journey.");
+        }
 
-        btn.addEventListener("click", function () {
-            text.textContent = "Bangkok temperature is 33°C ☀️";
-            text.style.color = "#2a7f62";
-            text.style.fontWeight = "bold";
-        });
+        let slides = [
+            {
+                image: "https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=1200",
+                title: "Song Wat Road",
+                text: "A creative street with old buildings, cafes, galleries, and local charm."
+            },
+            {
+                image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1200",
+                title: "Talad Noi",
+                text: "A vintage community with street art, old houses, and hidden photo spots."
+            },
+            {
+                image: "https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=1200",
+                title: "Charoen Krung",
+                text: "A lifestyle area with art spaces, coffee shops, restaurants, and creative culture."
+            }
+        ];
+
+        function changeSlide(index) {
+            document.getElementById("sliderImage").src = slides[index].image;
+            document.getElementById("sliderTitle").textContent = slides[index].title;
+            document.getElementById("sliderText").textContent = slides[index].text;
+
+            let dots = document.querySelectorAll(".dot");
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            dots[index].classList.add("active");
+        }
     </script>
 
 </body>
-
 </html>
