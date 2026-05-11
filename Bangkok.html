@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- WEEK 5 Practice project - Bangkok City Guide by Rainy -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangkok City Guide</title>
+
+    <style> /* CSS styles for the Bangkok City Guide webpage */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f1ec;
+            color: #111;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 8%;
+            background: #f4f1ec;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #111;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            border-bottom: 2px solid #111;
+        }
+
+        .hero {
+            min-height: 78vh;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45)),
+                url("https://res.cloudinary.com/gorealtravel/image/upload/f_auto,q_auto/,f_auto,q_50/v1563889832/production/marketing/city/5d3181c870428e0008e0845c/city_main_image/BANGKOK.webp");
+            background-size: cover;
+            background-position: center;
+            border-radius: 0 0 40px 40px;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 88px;
+            letter-spacing: 8px;
+            margin: 0;
+        }
+
+        .hero p {
+            max-width: 560px;
+            font-size: 18px;
+            line-height: 1.7;
+            background: rgba(0, 0, 0, 0.45);
+            padding: 22px;
+            border-radius: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 24px;
+            background: #ff6b00;
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .btn:hover {
+            background: #d95700;
+        }
+
+        section {
+            padding: 60px 8%;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 18px;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+        .intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .intro img {
+            width: 100%;
+            border-radius: 25px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 22px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        .card h3 {
+            margin-bottom: 8px;
+        }
+
+        .dark {
+            background: #050505;
+            color: white;
+            border-radius: 35px;
+            margin: 30px 4%;
+        }
+
+        .dark .card {
+            color: #111;
+        }
+
+        .highlight-box {
+            background: white;
+            border-radius: 25px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #111;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #festivalText {
+            margin-top: 18px;
+            color: #ff6b00;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px;
+            background: #111;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 8px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+                letter-spacing: 4px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .intro,
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav> <!-- Navigation bar with logo and links to different sections of the Bangkok City Guide webpage -->
+        <div class="logo">Bangkok</div>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#culture">Culture</a>
+            <a href="#creative">Creative</a>
+            <a href="#lifestyle">Lifestyle</a>
+            <a href="#info">Info</a>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div>
+            <h1>BANGKOK</h1>
+            <p>Bangkok is not only a city of temples and street food. It is also a modern capital full of creative neighbourhoods, stylish cafes, rooftop bars, 
+                art spaces, shopping districts, and local communities. This page shows Bangkok in a fresh and modern way.</p>
+            <button class="btn" onclick="showWelcome()">Start Journey</button>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div>
+            <h2>Krung Thep Maha Nakhon</h2>
+            <p>Bangkok’s Thai name is <b>กรุงเทพมหานคร</b> or <b>Krung Thep Maha Nakhon</b>.
+                The city combines traditional Thai culture with modern lifestyle. Visitors can enjoy temples, river views, local food, creative streets, 
+                shopping malls, and nightlife in the same trip.
+            </p>
+
+            <a class="btn" href="https://youtu.be/gbY5lbU3yNM?si=Rcm29jvX8CeM7Pdi" target="_blank">
+                Listen to Bangkok Name Song
+            </a>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=1200"
+            alt="Bangkok city view">
+    </section>
+
+    <section id="culture">
+        <h2>Historic & Cultural Bangkok</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/07/69/05/a2.jpg" alt="Grand Palace">
+                <h3>The Grand Palace</h3>
+                <p>One of Thailand’s most famous landmarks. It shows royal history, traditional Thai architecture, and cultural identity.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://www.agoda.com/wp-content/uploads/2024/03/Featured-image-Wat-Arun-Bangkok-Thailand.jpg" alt="Wat Arun">
+                <h3>Wat Arun</h3>
+                <p>A beautiful riverside temple with detailed design. It is especially popular during sunset and river trips.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://www.tripsavvy.com/thmb/aH_hcm4_GteQ8R-IW4j-7Nn9aq8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/status-of-reclining-buddha-at-wat-pho-temple-in-thailand-665690963-38016d762d964314925cf8e8c97015c2.jpg" alt="Wat Pho">
+                <h3>Wat Pho</h3>
+                <p>A historic temple famous for the Reclining Buddha and traditional Thai massage culture.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="dark" id="creative">
+        <h2>Creative & New Bangkok</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="https://www.aseanall.com/uploads/images/20231109/5d0047ff20096e62c388ca87269b656d.jpg" alt="Song Wat Road">
+                <h3>Song Wat Road</h3>
+                <p>A trendy neighbourhood with old shophouses, creative cafes, small galleries, and local Bangkok lifestyle.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://i.ytimg.com/vi/5GIIMnNgF0Q/maxresdefault.jpg" alt="Talad Noi">
+                <h3>Talad Noi</h3>
+                <p>A hidden old community known for street art, vintage buildings, coffee shops, and photography spots.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://aroimakmak.com/wp-content/uploads/2020/09/charoenkrungguide.jpg" alt="Charoen Krung">
+                <h3>Charoen Krung</h3>
+                <p>One of Bangkok’s oldest roads, now becoming a creative district with art spaces, cafes, and design culture.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="lifestyle">
+        <h2>Modern Lifestyle Areas</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="https://www.airahotelbangkok.com/wp-content/uploads/2026/01/image-1-1024x576.jpeg" alt="Charoen Krung">
+                <h3>Siam</h3>
+                <p>Bangkok’s shopping and fashion centre. It is popular with teenagers, students, tourists, and people who enjoy cafes and lifestyle malls.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://image-tc.galaxy.tf/wijpeg-bj1v9sfsr0v5pj9x12yve7hjx/silom-road.jpg" alt="Charoen Krung">
+                <h3>Silom</h3>
+                <p>A business district during the day and a nightlife area at night. Silom has rooftop bars, street food, and city energy.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://parametric-architecture.com/wp-content/uploads/2025/11/POP-MART-Store-12-scaled.webp" alt="Charoen Krung">
+                <h3>ICONSIAM</h3>
+                <p>A riverside shopping destination that combines luxury shopping, Thai food, culture, and modern river views.</p>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h3>Why Bangkok feels different</h3>
+            <p>Bangkok is interesting because it is not only traditional or modern.
+                It is both. You can visit a temple in the morning, drink coffee in a creative neighbourhood in the afternoon, and enjoy a rooftop bar at night.</p>
+            <button class="btn" onclick="showFestival()">Show Bangkok Highlight</button>
+            <p id="festivalText"></p>
+        </div>
+    </section>
+
+    <section id="info">
+        <h2>Travel Information</h2>
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td>Thailand</td>
+            </tr>
+            <tr>
+                <td>Capital City</td>
+                <td>Bangkok</td>
+            </tr>
+            <tr>
+                <td>Full Thai Name</td>
+                <td>กรุงเทพมหานคร</td>
+            </tr>
+            <tr>
+                <td>Famous For</td>
+                <td>Temples, food, cafes, shopping, rooftop bars, creative streets, and nightlife</td>
+            </tr>
+            <tr>
+                <td>Transport</td>
+                <td>BTS, MRT, taxi, tuk-tuk, boat, and walking in local areas</td>
+            </tr>
+        </table>
+    </section>
+
+    <footer>
+        <p><b>Bangkok is a city of culture, flavour, design, nightlife, and creative lifestyle.</b></p>
+    </footer>
+
+    <script> /* JavaScript functions for interactivity on the Bangkok City Guide webpage */
+        function showWelcome() {
+            alert("Welcome to Bangkok! Let’s explore the new image of the city.");
+        }
+
+        function showFestival() {
+            let festivalText = document.getElementById("festivalText");
+            festivalText.textContent = "Bangkok highlight: temples, Song Wat cafes, Talad Noi street art, Siam shopping, river views, and rooftop nightlife.";
+            festivalText.style.fontWeight = "bold";
+        }
+    </script>
+</body>
+</html>
